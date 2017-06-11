@@ -1,0 +1,47 @@
+@media (max-width: 768px) {
+    #panelinfo {
+        padding-left: 0;
+    }
+}
+@media (min-width: 768px) {
+    #eventoinformacion {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #navbar-collapse2 {
+        height: auto;
+        border-top: 0;
+        box-shadow: none;
+        max-height: none;
+        padding-left:0;
+        padding-right:0;
+    }
+    #navbar-collapse #collapse2 {
+        display: block !important;
+        width: auto !important;
+        padding-bottom: 0;
+        overflow: visible !important;
+    }
+    #navbar-collapse #in2 {
+        overflow-x: visible;
+    }
+
+    #navbar2
+    {
+        max-width:300px;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    #navbar-nav2,
+    #navbar-nav2 > li,
+    #navbar-left2,
+    #navbar-right2,
+    #navbar-header2
+    {float:none !important;}
+
+    #navbar-right2 #dropdown-menu2 {left:0;right:auto;}
+    #navbar-collapse2 #navbar-nav #navbar-right2:last-child {
+        margin-right: 0;
+    }
+}
