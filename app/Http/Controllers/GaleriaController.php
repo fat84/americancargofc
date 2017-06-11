@@ -109,19 +109,19 @@ class GaleriaController extends Controller
 
        $contador = count($image);
        $imageName = "";
-        for($i=0; $i<$contador; $i++){
+      /*  for($i=0; $i<$contador; $i++){
             echo $i;
             $imageName = time().$image[$i]->getClientOriginalName();
             $image[$i]->move(public_path('/galeria/imagenes/'),$imageName);
             $imagenes->archivo = $imageName;
-        }
-
-
-       /* foreach ($image as $image){
-            $imageName = time().$image->getClientOriginalName();
-            $image->move(public_path('/galeria/imagenes/'),$imageName);
-            $imagenes->archivo = $imageName;
         }*/
+
+
+       foreach ($image as $img){
+            $imageName = time().$img->getClientOriginalName();
+            $img->move(public_path('/galeria/imagenes/'),$imageName);
+            $imagenes->archivo = $imageName;
+        }
         $imagenes->save();
         return response()->json(['success'=>$imageName]);
 
