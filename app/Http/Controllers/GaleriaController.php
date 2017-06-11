@@ -100,29 +100,43 @@ class GaleriaController extends Controller
         if(! $this->validarprivilegio('crear')) {
             return redirect()->back();
         }
+        $path = public_path().'/galeria/imagenes/';
+        $files = $request->file('file');
+       // dd($files);
+        foreach($files as $file){
+            $imagenes = new Imagen;
+            $imagenes->titulo = $request->titulo;
+            $imagenes->galeria_id = $request->galeria_id;
+            $fileName = time().$file->getClientOriginalName();
+            $file->move($path, $fileName);
+            $imagenes->archivo = $fileName;
+            $imagenes->save();
+        }
+        return response()->json(['success'=>$fileName]);
 
-        $imagenes = new Imagen;
-        $imagenes->titulo = $request->titulo;
-        $imagenes->galeria_id = $request->galeria_id;
 
-        $image = $request->file('file');
+       /* $image = $request->file('file');
 
        $contador = count($image);
        $imageName = "";
-      /*  for($i=0; $i<$contador; $i++){
+       /* for($i=1; $i<$contador; $i++){
             echo $i;
             $imageName = time().$image[$i]->getClientOriginalName();
             $image[$i]->move(public_path('/galeria/imagenes/'),$imageName);
             $imagenes->archivo = $imageName;
         }*/
 
-
-       foreach ($image as $img){
+/*
+      foreach ($image as $img){
+          $imagenes = new Imagen;
+          $imagenes->titulo = $request->titulo;
+          $imagenes->galeria_id = $request->galeria_id;
             $imageName = time().$img->getClientOriginalName();
             $img->move(public_path('/galeria/imagenes/'),$imageName);
             $imagenes->archivo = $imageName;
+            $imagenes->save();
         }
-        $imagenes->save();
+
         return response()->json(['success'=>$imageName]);
 
 
@@ -134,7 +148,6 @@ class GaleriaController extends Controller
             $imagenes->archivo = $fileName;
         }
         $imagenes->save();
-
        // $img = $request->file('file');
        /* foreach($img as $file){
             $file_route = time() . '_' . $file->getClientOriginalName();
@@ -220,13 +233,25 @@ class GaleriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         if(! $this->validarprivilegio('editar')) {
             return redirect()->back();
         }
+        $path = public_path().'/galeria/imagenes/';
 
-        //codigo
+        $imagen = Imagen::find($request->idImagen);
+        $imagen->titulo = $request->tituloImagen;
+
+        $file = $request->file('nuevaImagen');
+        if(!empty($file)){
+            $fileName = time().$file->getClientOriginalName();
+            $file->move($path, $fileName);
+            $imagen->archivo = $fileName;
+        }
+
+        $imagen->save();
+        return redirect('galeria/individual/'.$imagen->galeria_id)->with('success','Imagen actualizada correctamente');
     }
 
     /**

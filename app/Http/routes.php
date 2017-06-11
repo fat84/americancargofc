@@ -139,6 +139,7 @@ Route::group(['middleware' => ['web', 'segdoblepaso', 'sesionactiva']], function
     Route::get('eliminarImagen/{id}/{id2}','GaleriaController@destroy2');
     Route::get('galeria/individual/{id}','GaleriaController@edit');
     Route::resource('galeriass','GaleriaController');
+    Route::post('actualizarImagen','GaleriaController@update');
     /***<<<<<Galeria de imagenes>>>>>>****/
 
 

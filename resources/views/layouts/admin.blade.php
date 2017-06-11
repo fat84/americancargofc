@@ -28,7 +28,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
       {{ Html::style('dist/css/skins/skin-red-light.min.css') }}
       {{ Html::style('dist/css/bootstrap-switch.css') }}
       {{ Html::style('css/sweetalert.css') }}
-      {{ Html::style('css/dropzone.css') }}
+      {{ Html::style('css/dropzone.min.css') }}
+      {{ Html::style('css/basic.min.css') }}
       @yield('style')
 
 
