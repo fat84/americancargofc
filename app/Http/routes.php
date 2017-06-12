@@ -186,7 +186,9 @@ Route::group(['middleware' => 'web'], function () {
         return view('index.gallery');
     });
 
-    Route::get('galerias/lista','GaleriaController@galeriasVista');
+    Route::get('galerias/lista',function (){
+        return view('index.galeria2');
+    });
 
     Route::get('tablass', function () {
         return view('index.tablastorneo');

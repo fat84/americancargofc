@@ -11,9 +11,9 @@
 		<link href='http://fonts.googleapis.com/css?family=Cabin:400,500,600,700' rel='stylesheet' type='text/css'>	
 	   <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>		
 	<!--//fonts-->		
-		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-        <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+		<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
+		<link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{asset('dist/css/AdminLTE.min.css')}}">
     <!-- Font Awesome -->
     {{ Html::style('dist/css/font-awesome.min.css') }}
     <!-- Ionicons -->
@@ -29,7 +29,7 @@
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- //for-mobile-apps -->
 	<!-- js -->
-		<script src="js/jquery.min.js"></script>
+		<script src="{{asset('js/jquery.min.js')}}"></script>
 	<!-- js -->
 
 </head>
