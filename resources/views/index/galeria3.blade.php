@@ -23,7 +23,7 @@
             <div class="row">
                 @foreach($imagenes as $imagene)
                     <div class="col-sm-6 col-md-4">
-                        <a href="{{url('galeria/individuals/'.$imagene->id)}}">  <div class="thumbnail">
+                        <div class="thumbnail">
                                 <img style="width: 200px;height: 200px" src="{{asset('galeria/imagenes/'.$imagene->archivo)}}">
                                 <div class="caption">
                                     <center>
@@ -31,7 +31,6 @@
                                     </center>
                                 </div>
                             </div>
-                        </a>
                     </div>
                 @endforeach
 
