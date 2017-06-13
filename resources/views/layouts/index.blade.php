@@ -19,6 +19,9 @@
     <!-- Ionicons -->
     {{ Html::style('dist/css/ionicons.min.css') }}
 	{{ Html::style('distindex/styindex.css') }}
+	<link rel="stylesheet" href="{{asset('css/blueimp-gallery.css')}}">
+	<link rel="stylesheet" href="{{asset('css/blueimp-gallery-indicator.css')}}">
+	<link rel="stylesheet" href="{{asset('css/blueimp-gallery-video.css')}}">
 
 	@yield('css')
 	<!-- for-mobile-apps -->
@@ -108,6 +111,15 @@
 <!-- Bootstrap 3.3.5-->
 {{ Html::script('dist/js/bootstrap.min.js') }}
 {{ Html::script('dist/js/app.min.js') }}
+<script src="{{asset('js/blueimp-helper.js')}}"></script>
+<script src="{{asset('js/blueimp-gallery.js')}}"></script>
+<script src="{{asset('js/blueimp-gallery-fullscreen.js')}}"></script>
+<script src="{{asset('js/blueimp-gallery-indicator.js')}}"></script>
+<script src="{{asset('js/blueimp-gallery-video.js')}}"></script>
+<script src="{{asset('js/blueimp-gallery-vimeo.js')}}"></script>
+<script src="{{asset('js/blueimp-gallery-youtube.js')}}"></script>
+<script src="{{asset('js/jquery.blueimp-gallery.js')}}"></script>
+
 
 {{--{{ Html::script('js/jquery.min.js') }}--}}
 

@@ -189,6 +189,11 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('galerias/lista',function (){
         return view('index.galeria2');
     });
+    Route::get('/galeria/individuals/{id}',function ($id){
+        $imagenes = \App\Imagen::where('galeria_id','=',$id)->get();
+        return view('index.galeria3',compact('imagenes'));
+    });
+
 
     Route::get('tablass', function () {
         return view('index.tablastorneo');

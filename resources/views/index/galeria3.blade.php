@@ -17,23 +17,21 @@
     </div>
 
 
-    <?php
-    $imagenes = \App\Galeria::all();
-    ?>
+
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="row">
                 @foreach($imagenes as $imagene)
                     <div class="col-sm-6 col-md-4">
-                      <a href="{{url('galeria/individuals/'.$imagene->id)}}">  <div class="thumbnail">
-                            <img style="width: 200px;height: 200px" src="{{asset('galeria/'.$imagene->archivo)}}">
-                            <div class="caption">
-                                <center>
-                                    <h3 style="text-transform: uppercase">{{$imagene->nombre}}</h3>
-                                </center>
+                        <a href="{{url('galeria/individuals/'.$imagene->id)}}">  <div class="thumbnail">
+                                <img style="width: 200px;height: 200px" src="{{asset('galeria/imagenes/'.$imagene->archivo)}}">
+                                <div class="caption">
+                                    <center>
+                                        <h3 style="text-transform: uppercase">{{$imagene->titulo}}</h3>
+                                    </center>
+                                </div>
                             </div>
-                        </div>
-                      </a>
+                        </a>
                     </div>
                 @endforeach
 
