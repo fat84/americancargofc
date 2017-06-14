@@ -23,6 +23,7 @@
 	<link rel="stylesheet" href="{{asset('css/blueimp-gallery-indicator.css')}}">
 	<link rel="stylesheet" href="{{asset('css/blueimp-gallery-video.css')}}">
 
+
 	@yield('css')
 	<!-- for-mobile-apps -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -119,6 +120,9 @@
 <script src="{{asset('js/blueimp-gallery-vimeo.js')}}"></script>
 <script src="{{asset('js/blueimp-gallery-youtube.js')}}"></script>
 <script src="{{asset('js/jquery.blueimp-gallery.js')}}"></script>
+
+
+
 
 
 {{--{{ Html::script('js/jquery.min.js') }}--}}

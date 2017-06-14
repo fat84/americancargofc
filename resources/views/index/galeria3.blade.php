@@ -18,24 +18,40 @@
 
 
 
-    <div class="panel panel-default">
+    <div class="panel panel-default" style="background: #000000!important;">
         <div class="panel-body">
             <div class="row">
-                @foreach($imagenes as $imagene)
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                                <img style="width: 200px;height: 200px" src="{{asset('galeria/imagenes/'.$imagene->archivo)}}">
-                                <div class="caption">
-                                    <center>
-                                        <h3 style="text-transform: uppercase">{{$imagene->titulo}}</h3>
-                                    </center>
-                                </div>
-                            </div>
-                    </div>
-                @endforeach
-
+                <div id="links">
+                    @foreach($imagenes as $imagene)
+                        <div class="col-md-3">
+                            <a href="{{asset('galeria/imagenes/'.$imagene->archivo)}}" title="{{$imagene->titulo}}">
+                                <img style="width: 200px;height: 200px" src="{{asset('galeria/imagenes/'.$imagene->archivo)}}" alt="{{$imagene->titulo}}">
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
+    <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+    <div id="blueimp-gallery" class="blueimp-gallery">
+        <div class="slides"></div>
+        <h3 class="title"></h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <a class="play-pause"></a>
+        <ol class="indicator"></ol>
+    </div>
 
+    <script>
+        document.getElementById('links').onclick = function (event) {
+            event = event || window.event;
+            var target = event.target || event.srcElement,
+                link = target.src ? target.parentNode : target,
+                options = {index: link, event: event},
+                links = this.getElementsByTagName('a');
+            blueimp.Gallery(links, options);
+        };
+    </script>
 @stop

@@ -75,13 +75,15 @@
             @foreach($imagenes as $imagenes)
 
 
-                        <div class="col-sm-6 col-md-4">
+                        <div class="col-md-4" style="height: 400px">
                             <div class="thumbnail">
                                 <img style="width: 200px;height: 200px" src="{{asset('galeria/imagenes/'.$imagenes->archivo)}}">
                                 <div class="caption">
-                                 <center>  <h3>{{$imagenes->titulo}}</h3>
+                                 <center>
+                                     <p style="font-weight: bold">{{$imagenes->titulo}}</p>
                                     <p><a href="#" class="btn btn-primary" role="button" data-toggle="modal" data-target="#myModal{{$imagenes->id}}">Editar</a>
                                         <a href="#" class="btn btn-danger" onclick="alertEliminar{{$imagenes->id}}()" role="button">Eliminar</a></p>
+                                     <br>
                                  </center>
                                 </div>
                             </div>
