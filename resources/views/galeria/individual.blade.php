@@ -163,7 +163,9 @@
             uploadMultiple: true,
             maxFilezise: 10,
             maxFiles: 10,
-           addRemoveLinks: true,
+            addRemoveLinks: true,
+            //resize: 50,
+
             init: function() {
                 var submitBtn = document.querySelector("#submit");
                 myDropzone = this;
@@ -180,7 +182,10 @@
 
                 this.on("complete", function(file) {
                     myDropzone.removeFile(file);
-                    location.reload();
+                   // location.reload();
+                    myDropzone.options.transformFile ={
+                        resizeWidth: 50,
+                    }
                 });
 
                 this.on("success",
@@ -188,6 +193,9 @@
                 );
             }
         };
+      Dropzone.options.transformFile ={
+          resizeWidth: 10
+      };
     </script>
 @endsection
 

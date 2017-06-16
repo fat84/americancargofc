@@ -18,7 +18,7 @@
 
 
 
-    <div class="panel panel-default" style="background: #000000!important;">
+    <div class="panel panel-default">
         <div class="panel-body">
             <div class="row">
                 <div id="links">
@@ -27,6 +27,7 @@
                             <a href="{{asset('galeria/imagenes/'.$imagene->archivo)}}" title="{{$imagene->titulo}}">
                                 <img style="width: 200px;height: 200px" src="{{asset('galeria/imagenes/'.$imagene->archivo)}}" alt="{{$imagene->titulo}}">
                             </a>
+                            <h1>{{$imagene->titulo}}</h1>
                         </div>
                     @endforeach
                 </div>

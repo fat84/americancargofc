@@ -11,6 +11,8 @@ use Response;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Redirect;
+use Intervention;
+use Image;
 
 class GaleriaController extends Controller
 {
@@ -108,8 +110,24 @@ class GaleriaController extends Controller
             $imagenes->titulo = $request->titulo;
             $imagenes->galeria_id = $request->galeria_id;
             $fileName = time().$file->getClientOriginalName();
-            $file->move($path, $fileName);
+           // $file->resize(100, null);
+           /* $file->move($path, $fileName);
             $imagenes->archivo = $fileName;
+            $imagenes->save();*/
+
+            $img = \Image::make($file);
+            //Ruta donde queremos guardar las imagenes
+           // $path = public_path() . '/img/usuarios/';
+
+            // Cambiar de tamaño a 160px x 160px
+            $img->resize(700);
+
+            // Guardarmos
+            $nombre = time() . $file->getClientOriginalName();//nuevo nombre de imagen
+            $img->save($path . $nombre);
+
+            //Introducimos en el atributo foto el nuevo nombre
+            $imagenes->archivo = $nombre;
             $imagenes->save();
         }
         return response()->json(['success'=>$fileName]);
