@@ -73,8 +73,6 @@
         <div class="panel-body">
             <div class="row">
             @foreach($imagenes as $imagenes)
-
-
                         <div class="col-md-4" style="height: 400px">
                             <div class="thumbnail">
                                 <img style="width: 200px;height: 200px" src="{{asset('galeria/imagenes/'.$imagenes->archivo)}}">
@@ -165,6 +163,7 @@
             uploadMultiple: true,
             maxFilezise: 10,
             maxFiles: 10,
+           addRemoveLinks: true,
             init: function() {
                 var submitBtn = document.querySelector("#submit");
                 myDropzone = this;

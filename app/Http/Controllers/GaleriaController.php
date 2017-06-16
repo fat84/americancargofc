@@ -266,6 +266,7 @@ class GaleriaController extends Controller
             return redirect()->back();
         }
         $galeria = Galeria::find($id);
+        Storage::delete('/galeria/'.$galeria->archivo);
         $galeria->delete();
         return redirect('/galeria/index')->with('success','Galeria eliminada correctamente');
         //codigo
@@ -278,6 +279,7 @@ class GaleriaController extends Controller
         }
 
         $imagen = Imagen::find($id);
+        Storage::delete('/galeria/imagenes/'.$imagen->archivo);
         $imagen->delete();
         return redirect('/galeria/individual/'.$id2)->with('success','Imagen eliminada correctamente');
         //codigo
