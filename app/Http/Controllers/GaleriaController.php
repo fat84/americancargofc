@@ -119,8 +119,12 @@ class GaleriaController extends Controller
             //Ruta donde queremos guardar las imagenes
            // $path = public_path() . '/img/usuarios/';
 
-            // Cambiar de tamaño a 160px x 160px
-            $img->resize(700);
+            $width = $img->width();
+            if($width > 700){
+                $img->resize(700, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+            }
 
             // Guardarmos
             $nombre = time() . $file->getClientOriginalName();//nuevo nombre de imagen

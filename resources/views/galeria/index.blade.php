@@ -21,7 +21,7 @@
                 <div class="col-lg-6">
                     <div class="input-group">
                         <label for="">Imagen principal*</label>
-                        <input id="titulo" name="imagen" type="file" required class="form-control" placeholder="Titulo de la Galeria">
+                        <input id="titulo" name="imagen" accept="image/*" type="file" required class="form-control" placeholder="Titulo de la Galeria">
                     </div>
                 </div>
                 <br>

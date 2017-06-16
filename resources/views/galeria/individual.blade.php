@@ -164,6 +164,7 @@
             maxFilezise: 10,
             maxFiles: 10,
             addRemoveLinks: true,
+            acceptedFiles:"image/*",
             //resize: 50,
 
             init: function() {
@@ -182,7 +183,7 @@
 
                 this.on("complete", function(file) {
                     myDropzone.removeFile(file);
-                   // location.reload();
+                    location.reload();
                     myDropzone.options.transformFile ={
                         resizeWidth: 50,
                     }

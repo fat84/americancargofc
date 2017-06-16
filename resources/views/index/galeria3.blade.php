@@ -27,7 +27,7 @@
                             <a href="{{asset('galeria/imagenes/'.$imagene->archivo)}}" title="{{$imagene->titulo}}">
                                 <img style="width: 200px;height: 200px" src="{{asset('galeria/imagenes/'.$imagene->archivo)}}" alt="{{$imagene->titulo}}">
                             </a>
-                            <h1>{{$imagene->titulo}}</h1>
+                            <h3>{{$imagene->titulo}}</h3>
                         </div>
                     @endforeach
                 </div>
