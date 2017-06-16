@@ -90,6 +90,8 @@
                         </div>
                     <form id="eliminarImagen{{$imagenes->id}}" action="{{url('eliminarImagen/'.$imagenes->id.'/'.$galeria->id)}}" method="get">
                     </form>
+
+
                     <script>
                         function alertEliminar{{$imagenes->id}}() {
                             swal({
