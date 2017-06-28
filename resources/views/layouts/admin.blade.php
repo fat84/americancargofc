@@ -145,7 +145,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       @elseif($idprivilegio == 3 && $consultar == 1)
                         <li><a href="{{route('informe')}}"><i class="fa fa-pie-chart"></i> <span>Informes</span></a></li>
                       @elseif($idprivilegio == 4 && $consultar == 1)
-                        <li><a href="#"><i class="fa fa-bars"></i> <span>Eventos</span></a></li>
+                        <li><a href="{{url('eventos')}}"><i class="fa fa-bars"></i> <span>Eventos</span></a></li>
                       @elseif($idprivilegio == 5 && $consultar == 1)
                         <li><a href="#"><i class="fa fa-users"></i> <span>Junta Directiva</span></a></li>
                       @elseif($idprivilegio == 6 && $consultar == 1)

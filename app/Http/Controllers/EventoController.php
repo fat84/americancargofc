@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Evento;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Storage;
 
 class EventoController extends Controller
 {
@@ -49,6 +51,9 @@ class EventoController extends Controller
     {
         if(! $this->validarprivilegio('consultar')) {
             return redirect()->back();
+        } else {
+            $eventos = Evento::orderBy('fecha','DESC')->get();
+            return view('eventos.index',['eventos'=>$eventos]);
         }
 
         //codigo
@@ -62,6 +67,7 @@ class EventoController extends Controller
     public function create()
     {
         //
+        return view('eventos.create');
     }
 
     /**
@@ -74,6 +80,18 @@ class EventoController extends Controller
     {
         if(! $this->validarprivilegio('crear')) {
             return redirect()->back();
+        }else{
+            $evento = new Evento($request->all());
+
+            $img = $request->file('archivo');
+            $file_route = time() . '_' . $img->getClientOriginalName();
+            Storage::disk('eventos')->put($file_route, file_get_contents($img->getRealPath()));
+            $evento->archivo = $file_route;
+            if($evento->save()){
+                return redirect('eventos')->with(['success'=>'Evento creado correctamente.']);
+            }else{
+                return redirect()->back()->with(['error'=>'No se ha podido crear el evento, intenta nuevamente']);
+            }
         }
 
         //codigo
@@ -131,7 +149,16 @@ class EventoController extends Controller
     {
         if(! $this->validarprivilegio('eliminar')) {
             return redirect()->back();
+        }else{
+            $evento = Evento::find($id);
+            if($evento->delete()){
+                return redirect('eventos')->with(['success'=>'Evento eliminado']);
+            }else{
+                return redirect('eventos')->with(['error'=>'Evento no pudo ser eliminado']);
+            }
+
         }
+
 
         //codigo
     }

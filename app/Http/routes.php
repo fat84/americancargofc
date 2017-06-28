@@ -141,8 +141,10 @@ Route::group(['middleware' => ['web', 'segdoblepaso', 'sesionactiva']], function
     Route::resource('galeriass','GaleriaController');
     Route::post('actualizarImagen','GaleriaController@update');
     /***<<<<<Galeria de imagenes>>>>>>****/
-
-
+    Route::get('eventos','EventoController@index');
+    Route::get('eventos/nuevo','EventoController@create');
+    Route::post('eventos/guardar', 'EventoController@store');
+    Route::get('eventos/eliminar/{id}', 'EventoController@destroy');
 });
 
 Route::group(['middleware' => 'web'], function () {

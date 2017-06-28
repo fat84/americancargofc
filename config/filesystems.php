@@ -70,6 +70,10 @@ return [
             'region' => 'your-region',
             'bucket' => 'your-bucket',
         ],
+        'eventos' => [
+            'driver' => 'local',
+            'root' => public_path('img/eventos'),
+        ],
 
     ],
 
