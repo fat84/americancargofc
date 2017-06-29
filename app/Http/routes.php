@@ -145,6 +145,8 @@ Route::group(['middleware' => ['web', 'segdoblepaso', 'sesionactiva']], function
     Route::get('eventos/nuevo','EventoController@create');
     Route::post('eventos/guardar', 'EventoController@store');
     Route::get('eventos/eliminar/{id}', 'EventoController@destroy');
+    Route::get('eventos/editar/{id}', 'EventoController@edit');
+    Route::post('eventos/actualizar', 'EventoController@update');
 });
 
 Route::group(['middleware' => 'web'], function () {

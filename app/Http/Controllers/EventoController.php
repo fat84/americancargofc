@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Evento;
+use App\Events\Event;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -118,6 +119,9 @@ class EventoController extends Controller
     {
         if(! $this->validarprivilegio('editar')) {
             return redirect()->back();
+        }else{
+            $evento = Evento::find($id);
+            return view('eventos.edit',['evento'=>$evento]);
         }
 
         //codigo
@@ -130,10 +134,24 @@ class EventoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         if(! $this->validarprivilegio('editar')) {
             return redirect()->back();
+        }else{
+            $evento = Evento::find($request->id);
+            $evento->nombre = $request->nombre;
+            $evento->fecha = $request->fecha;
+            $img = $request->file('archivo');
+            if($img!=null){
+                $file_route = time() . '_' . $img->getClientOriginalName();
+                Storage::disk('eventos')->put($file_route, file_get_contents($img->getRealPath()));
+                $evento->archivo = $file_route;
+            }
+            $evento->informacion = $request->informacion;
+            return $evento->save() ? redirect('eventos')->with(['success'=>'Evento editado correctamente']) :
+                redirect('eventos')->with(['error'=>'Evento editado correctamente']);
+
         }
 
         //codigo

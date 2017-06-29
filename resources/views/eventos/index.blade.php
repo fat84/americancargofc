@@ -43,9 +43,9 @@
                                             Acción <span class="caret"></span>
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li><a href="{{url('galeria/individual/'.$evento->id)}}">Ver</a></li>
-                                            <li><a href="{{url('galeria/individual/'.$evento->id)}}">Editar</a></li>
-                                            <li><a href="#" onclick="alertEliminar{{$evento->id}}()">Elimianr</a></li>
+                                            <!--<li><a href="{{url('eventos/individual/'.$evento->id)}}">Ver</a></li>-->
+                                            <li><a href="{{url('eventos/editar/'.$evento->id)}}">Editar</a></li>
+                                            <li><a href="#" onclick="alertEliminar{{$evento->id}}()">Eliminar</a></li>
                                             <form id="eliminarGaleria{{$evento->id}}" action="{{url('eventos/eliminar/'.$evento->id)}}" method="get">
                                             </form>
                                         </ul>
