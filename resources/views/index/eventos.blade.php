@@ -22,14 +22,24 @@
                             <span>{{\date('m/Y',strtotime($evento->fecha))}}</span>
                         </div>
                         <div class="event-grid_pic">
-                            <a href="{{url('eventos/detalle/'.$evento->id)}}"> <img src="{{asset('img/eventos/'.$evento->archivo)}}" alt="{{$evento->nombre}}"
-                                 style="max-width: 350px; max-height: 180px;"/></a>
+                            <a href="{{url('eventos/detalle/'.$evento->id)}}"> <img
+                                        src="{{asset('img/eventos/'.$evento->archivo)}}" alt="{{$evento->nombre}}"
+                                        style="max-width: 350px; max-height: 180px;"/></a>
                             <h3><a href="{{url('eventos/detalle/'.$evento->id)}}">{{$evento->nombre}}</a></h3>
                             <div class="col-md-12">
                                 <p>
                                     @php
                                         $infosplit = explode("</p>", $evento->informacion);
-                                        $info =  str_replace('<p>','',$infosplit[0]);
+                                        $info = "";
+                                        foreach ($infosplit as $temp){
+                                            if(strpos($temp,'data:image/')!==false || strlen($temp)<=10){
+                                            }else{
+                                                $info = $temp;
+                                                break;
+                                            }
+
+                                        }
+                                        $info =  str_replace('<p>','',$info);
                                         echo substr($info, 0 , 500).'...';
                                     @endphp
                                 </p>
