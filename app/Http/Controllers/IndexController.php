@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Evento;
 use App\Informe;
 use App\ArchivosInforme;
 use Illuminate\Http\Request;
@@ -120,5 +121,12 @@ class IndexController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function indexEventos(){
+        $eventos = Evento::where('fecha','>=',\date('Y-m-d H:m:s'))
+            ->OrderBy('fecha','ASC')->paginate(1);
+        return view('index.eventos')->with(['eventos'=> $eventos]);
     }
 }

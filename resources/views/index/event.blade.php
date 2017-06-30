@@ -81,7 +81,7 @@
 <!-- //header -->
 <div class="container">
 		 <ol class="breadcrumb">
-		  <li><a href="principal.blade.html">Inicio</a></li>
+		  <li><a href="#">Inicio</a></li>
 		  <li class="active">Eventos</li>
 		 </ol>
 </div>

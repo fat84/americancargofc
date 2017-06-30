@@ -26,6 +26,8 @@
 |
 */
 
+use App\Evento;
+
 Route::group(['middleware' => ['web', 'segdoblepaso', 'sesionactiva']], function () {
 
     //Ruta para la plantilla de usuarios autenticados
@@ -208,6 +210,23 @@ Route::group(['middleware' => 'web'], function () {
     });
 
     Route::get('prueba', function () {
+
+    });
+    Route::get('eventos/lista',function(){
+
+        $eventos = Evento::where('fecha','>=',\date('Y-m-d H:m:s'))
+            ->OrderBy('fecha','ASC')->paginate(3);
+        return view('index.eventos')->with(['eventos'=> $eventos]);
+    });
+
+    Route::get('eventos/detalle/{id}',function($id){
+
+        $evento = Evento::find($id);
+        if($evento!=null){
+            return view('index.un_evento')->with(['evento'=> $evento]);
+        }else{
+            return redirect('eventos/lista');
+        }
 
     });
 
