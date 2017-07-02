@@ -16,15 +16,20 @@
             <div class="event-grids">
 
                 @foreach($eventos as $evento)
-                    <div class="col-md-4 event-grid">
+                    <div class="col-md-6 event-grid">
                         <div class="date">
                             <h3>{{\date('d',strtotime($evento->fecha))}}</h3>
                             <span>{{\date('m/Y',strtotime($evento->fecha))}}</span>
                         </div>
                         <div class="event-grid_pic">
-                            <a href="{{url('eventos/detalle/'.$evento->id)}}"> <img
-                                        src="{{asset('img/eventos/'.$evento->archivo)}}" alt="{{$evento->nombre}}"
-                                        style="max-width: 350px; max-height: 180px;"/></a>
+                            <div style="width: 500px;height: 420px">
+                                <a href="{{url('eventos/detalle/'.$evento->id)}}">
+                                    <center><img
+                                                src="{{asset('img/eventos/'.$evento->archivo)}}"
+                                                alt="{{$evento->nombre}}"
+                                                style="width: 100%; height: auto;"/></center>
+                                </a>
+                            </div>
                             <h3><a href="{{url('eventos/detalle/'.$evento->id)}}">{{$evento->nombre}}</a></h3>
                             <div class="col-md-12">
                                 <p>
@@ -62,13 +67,6 @@
     </div>
 
     <script>
-        document.getElementById('links').onclick = function (event) {
-            event = event || window.event;
-            var target = event.target || event.srcElement,
-                link = target.src ? target.parentNode : target,
-                options = {index: link, event: event},
-                links = this.getElementsByTagName('a');
-            blueimp.Gallery(links, options);
-        };
+
     </script>
 @stop

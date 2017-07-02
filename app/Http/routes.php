@@ -215,7 +215,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('eventos/lista',function(){
 
         $eventos = Evento::where('fecha','>=',\date('Y-m-d H:m:s'))
-            ->OrderBy('fecha','ASC')->paginate(3);
+            ->OrderBy('fecha','ASC')->paginate(4);
         return view('index.eventos')->with(['eventos'=> $eventos]);
     });
 

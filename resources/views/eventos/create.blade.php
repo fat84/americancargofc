@@ -50,7 +50,7 @@
     <!-- include summernote css/js-->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.js"></script>
-    <script src="https://raw.githubusercontent.com/summernote/summernote/develop/lang/summernote-es-ES.js"></script>
+    <script src="{{asset('js/summernote-es.js')}}"></script>
     <script>
         $(document).ready(function() {
             $('#informacion').summernote({
