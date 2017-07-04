@@ -53,7 +53,7 @@
 				 <li><a href="{{ url('galerias') }}">GALERIA</a></li>
 				 <li><a href="{{ url('galerias/lista') }}">GALERIA</a></li>
 				 <li><a href="{{ url('indexinformes') }}">INFORMES</a></li>
-				 <li><a href="{{'eventos/lista'}}">EVENTOS</a></li>
+				 <li><a href="{{url('eventos/lista')}}">EVENTOS</a></li>
 				 <li><a href="{{ url('contacto') }}">CONTACTO</a></li>
 			 </ul>
 		 </div>			

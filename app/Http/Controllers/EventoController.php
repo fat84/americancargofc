@@ -144,6 +144,7 @@ class EventoController extends Controller
             $evento->fecha = $request->fecha;
             $img = $request->file('archivo');
             if($img!=null){
+                Storage::delete('/galeria/imagenes/'.$evento->archivo);
                 $file_route = time() . '_' . $img->getClientOriginalName();
                 Storage::disk('eventos')->put($file_route, file_get_contents($img->getRealPath()));
                 $evento->archivo = $file_route;
@@ -169,6 +170,7 @@ class EventoController extends Controller
             return redirect()->back();
         }else{
             $evento = Evento::find($id);
+            Storage::delete('/galeria/imagenes/'.$evento->archivo);
             if($evento->delete()){
                 return redirect('eventos')->with(['success'=>'Evento eliminado']);
             }else{

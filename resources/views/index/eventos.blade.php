@@ -1,4 +1,13 @@
 @extends('layouts.index')
+@section('css')
+    <style>.a-img {
+            background-size: cover;
+            height: 420px;
+            display: block;
+            background-position: center;
+            width: 100%;
+        }</style>
+@endsection
 
 @section('contenido')
     <div class="gallery-head">
@@ -22,34 +31,38 @@
                             <span>{{\date('m/Y',strtotime($evento->fecha))}}</span>
                         </div>
                         <div class="event-grid_pic">
-                            <div style="width: 500px;height: 420px">
+                            <div class="col-md-12">
                                 <a href="{{url('eventos/detalle/'.$evento->id)}}">
-                                    <center><img
-                                                src="{{asset('img/eventos/'.$evento->archivo)}}"
-                                                alt="{{$evento->nombre}}"
-                                                style="width: 100%; height: auto;"/></center>
+                                    <div class="a-img" class="a-image"
+                                         style="background-image: url('{{asset('img/eventos/'.$evento->archivo)}}');"></div>
                                 </a>
                             </div>
-                            <h3><a href="{{url('eventos/detalle/'.$evento->id)}}">{{$evento->nombre}}</a></h3>
                             <div class="col-md-12">
-                                <p>
-                                    @php
-                                        $infosplit = explode("</p>", $evento->informacion);
-                                        $info = "";
-                                        foreach ($infosplit as $temp){
-                                            if(strpos($temp,'data:image/')!==false || strlen($temp)<=10){
-                                            }else{
-                                                $info = $temp;
-                                                break;
-                                            }
+                                <h3><a href="{{url('eventos/detalle/'.$evento->id)}}">{{$evento->nombre}}</a></h3>
+                                <div class="col-md-12" style="height:40px; overflow: scroll; overflow-y: hidden; overflow-x: hidden">
+                                    <p>
+                                        @php
+                                            $infosplit = explode("</p>", $evento->informacion);
+                                            $info = "";
+                                            foreach ($infosplit as $temp){
+                                                if(strpos($temp,'data:image/')!==false || strlen($temp)<=10){
+                                                }else{
+                                                    $info = $temp;
+                                                    break;
+                                                }
 
-                                        }
-                                        $info =  str_replace('<p>','',$info);
-                                        echo substr($info, 0 , 500).'...';
-                                    @endphp
-                                </p>
+                                            }
+                                            $info =  str_replace('<p>','',$info);
+                                            echo substr($info, 0 , 500).'...';
+                                        @endphp
+                                    </p>
+                                </div>
+                                <div class="col-md-12">
+                                    <hr>
+                                    <div class="more"><a href="{{url('eventos/detalle/'.$evento->id)}}">> Leer mas</a></div>
+                                    <br>
+                                </div>
                             </div>
-                            <div class="more"><a href="{{url('eventos/detalle/'.$evento->id)}}">> Leer mas</a></div>
                         </div>
                         <div class="clearfix"></div>
                     </div>

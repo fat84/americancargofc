@@ -62,8 +62,9 @@
 
 @section('script')
     <!-- include summernote css/js-->
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.css" rel="stylesheet">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.js"></script>
+
+    <link href="{{asset('summernote/summernote.css')}}" rel="stylesheet">
+    <script src="{{asset('summernote/summernote.js')}}"></script>
     <script src="{{asset('js/summernote-es.js')}}"></script>
     <script>
         $(document).ready(function () {

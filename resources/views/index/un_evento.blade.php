@@ -22,8 +22,8 @@
 
             </div>
             <div class="col-md-12">
-                <img class="img-thumbnail" src="{{asset('img/eventos/'.$evento->archivo)}}"
-                     style="width: 100%; height: auto"/>
+                <center><img class="img-thumbnail" src="{{asset('img/eventos/'.$evento->archivo)}}"
+                             style="width: auto; height: 400px"/></center>
             </div>
             <div class="col-md-10 col-lg-offset-1 text-justify">
                 <br><br>
