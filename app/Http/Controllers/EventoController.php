@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\EventoRequest;
+use App\Http\Requests\Evento2Request;
 
 class EventoController extends Controller
 {
@@ -77,7 +79,7 @@ class EventoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EventoRequest $request)
     {
         if(! $this->validarprivilegio('crear')) {
             return redirect()->back();
@@ -134,7 +136,7 @@ class EventoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Evento2Request $request)
     {
         if(! $this->validarprivilegio('editar')) {
             return redirect()->back();

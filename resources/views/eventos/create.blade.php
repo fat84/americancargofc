@@ -17,13 +17,13 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label class="control-label" for="nombre">Nombre del evento:</label>
-                                <input class="form-control" id="nombre" name="nombre" type="text" value="" required>
+                                <input class="form-control" id="nombre" name="nombre" type="text" value="{{old('nombre')}}" required>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label class="control-label" for="fecha">Fecha:</label>
-                                <input class="form-control" id="fecha" name="fecha" type="date" value="" required>
+                                <input class="form-control" id="fecha" name="fecha" type="date" value="{{old('fecha')}}" required>
                             </div>
                         </div>
                         <div class="col-md-9">
@@ -35,7 +35,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label class="control-label" for="archivo" >Información del evento:</label>
-                                <textarea  required id="informacion" name="informacion" class="form-control" rows="10" style="height: 300px"></textarea>
+                                <textarea  required id="informacion" name="informacion" class="form-control" rows="10" style="height: 300px">{{old('informacion')}}</textarea>
                             </div>
                         </div>
                     </div>
